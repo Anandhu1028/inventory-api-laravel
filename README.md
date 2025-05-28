@@ -101,7 +101,18 @@ POST `/api/login`
 
 ## 📫 Postman Collection
 
-> You can import the Postman collection file (if exported) to test all endpoints.
+> ## Postman Collection
+
+You can test all API endpoints using the provided Postman collection.
+
+📁 [Download / View Collection](postman/inventory-api-postman-collection.json)
+
+To use:
+1. Open Postman.
+2. Go to `File > Import`.
+3. Choose the file `inventory-api-postman-collection.json` from the `postman/` directory.
+4. Use the requests to test all functionality: Products, Warehouses, Stock, Pricing, Auth, etc.
+
 
 ---
 
