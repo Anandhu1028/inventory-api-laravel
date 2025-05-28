@@ -1,0 +1,96 @@
+{
+    "info": {
+        "name": "Inventory Management & Dynamic Pricing API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "inventory-api-collection",
+        "description": "Postman collection for testing Inventory Management & Dynamic Pricing API."
+    },
+    "item": [
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/login",
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "login"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Get All Products with Dynamic Pricing",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/products",
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "products"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Dynamic Pricing for Specific Product",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/products/pricing?product_id=1",
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "products",
+                        "pricing"
+                    ],
+                    "query": [
+                        {
+                            "key": "product_id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Final Price for Product",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/products/1/price",
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "products",
+                        "1",
+                        "price"
+                    ]
+                }
+            }
+        }
+    ]
+}
