@@ -1,47 +1,118 @@
-# Inventory Management & Dynamic Pricing API (Laravel)
+# Inventory Management & Dynamic Pricing API
 
-This is a Laravel-based REST API project for managing products, warehouses, stock levels, and dynamic pricing logic.
+This is a Laravel-based RESTful API for managing inventory, warehouses, and dynamic product pricing based on stock levels and expiry.
+
+## 🔧 Features
+
+* ✅ User Authentication (Sanctum)
+* 📦 Product Management
+* 🏬 Warehouse Management
+* 📊 Stock Tracking
+* 💰 Dynamic Pricing based on stock and expiry
+* 📈 Reporting Endpoints
+* 🧪 Postman API Testing
+
+---
+
+## 🛠 Installation Guide
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Anandhu1028/inventory-api-laravel.git
+cd inventory-api-laravel
+```
+
+2. **Install dependencies**
+
+```bash
+composer install
+npm install && npm run dev
+```
+
+3. **Setup `.env` file**
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. **Configure database** in `.env`
+
+```
+DB_DATABASE=your_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+5. **Run migrations and seeders (if any)**
+
+```bash
+php artisan migrate
+```
+
+6. **Serve the application**
+
+```bash
+php artisan serve
+```
+
+---
 
 ## 🔐 Authentication
 
-- **Login**: `POST /api/login`
-  - Required: `email`, `password`
-  - Returns Bearer Token for authenticated requests.
+* Uses **Laravel Sanctum** for API authentication
+* Register/Login to receive token
 
-## 🛒 Product Endpoints
+### Register
 
-- `GET /api/products`: List all products with stock and dynamic pricing.
-- `GET /api/products/pricing?product_id=1`: Calculate dynamic price for a product.
-- `GET /api/products/{id}/price`: Fetch final price of a product.
+POST `/api/register`
 
-## 📦 Stock
+### Login
 
-- `POST /api/stock`: Add new stock to a warehouse.
+POST `/api/login`
 
-## 🏢 Warehouse
+> Use `Authorization: Bearer {token}` in headers for all protected routes.
 
-- `GET /api/warehouses/{id}/report`: Stock summary per warehouse.
+---
 
-## 🔧 Technologies Used
+## 🚀 API Endpoints
 
-- Laravel 10+
-- Sanctum for API Authentication
-- MySQL for DB
-- Laravel Jobs & Queues (optional bonus)
-- Postman for testing
+### Products
 
-## 🧪 Postman Collection
+* `GET /api/products` — List products with dynamic pricing
+* `GET /api/products/pricing?product_id=1` — Dynamic pricing details
+* `GET /api/products/{id}/price` — Final dynamic price
 
-Use the provided Postman collection:  
-👉 `Inventory-API.postman_collection.json`
+### Warehouses
 
-## ⚙️ Setup Instructions
+* `GET /api/warehouses` — List warehouses
+* `POST /api/warehouses` — Add new warehouse
 
-```bash
-git clone <repo-url>
-cd project-folder
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+### Stock
+
+* `POST /api/stock` — Add or update stock
+
+### Reporting
+
+* (Add report endpoint here if implemented)
+
+---
+
+## 📫 Postman Collection
+
+> You can import the Postman collection file (if exported) to test all endpoints.
+
+---
+
+## 🧑‍💻 Author
+
+**Anandhu A S**
+
+* [GitHub Profile](https://github.com/Anandhu1028)
+
+---
+
+## 📃 License
+
+This project is open-source and available under the [MIT License](LICENSE).
